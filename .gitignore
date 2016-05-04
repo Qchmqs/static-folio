@@ -1,0 +1,10 @@
+/log
+/tmp
+/public
+/.sass-cache
+
+## Environment normalization:
+/.bundle
+
+.map
+
