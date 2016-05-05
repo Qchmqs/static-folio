@@ -28,12 +28,33 @@ rely completely on 3rd party APIs.
 * Supports static and dynamic websites via AJAX.
 
 ## Tools
+Static uses these tools.
 
-haml
-sass
-coffeescript
-rvm
-bundler
-npm
-uglify-js
-zopfli
+**[haml][1]** - Beautiful, DRY, well-indented, clear markup.
+
+**[sass][2]** - The most mature, stable, and powerful professional grade css extension language.
+
+**[coffeescript][3]** - A little language that compiles into JavaScript.
+
+**[rvm][4]** - Easily install, manage and work with multiple ruby environments.
+
+**[bundler][5]** - The best way to manage your application's dependencies.
+
+**[npm][6]** - The package manager for JavaScript. Build amazing things.   
+
+**[uglify-js][7]** - A JavaScript parser/compressor/beautifier.
+
+**[zopfli][8]** - A compression library programmed to perform very good.
+
+
+[1]: http://haml.info
+[2]: http://sass-lang.com
+[3]: http://coffeescript.org
+[4]: https://rvm.io
+[5]: http://bundler.io
+[6]: https://www.npmjs.com
+[7]: https://github.com/mishoo/UglifyJS
+[8]: https://github.com/google/zopfli
+
+
+
