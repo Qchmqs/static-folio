@@ -16,11 +16,17 @@ $gray:                   lighten($gray-base, 33.5%) // #555
 $gray-light:             lighten($gray-base, 46.7%) // #777
 $gray-lighter:           lighten($gray-base, 93.5%) // #eee
 
-$brand-primary:         darken(#428bca, 6.5%) // #337ab7
-$brand-success:         #5cb85c
-$brand-info:            #5bc0de
-$brand-warning:         #f0ad4e
-$brand-danger:          #d9534f
+// $brand-primary:         darken(#428bca, 6.5%) // #337ab7
+// $brand-success:         #5cb85c
+// $brand-warning:         #f0ad4e
+// $brand-info:            #5bc0de
+// $brand-danger:          #d9534f
+
+$brand-primary:         #1CA8DD
+$brand-info:            #1CA8DD
+$brand-success:         #1bc98e
+$brand-warning:         #e4d836
+$brand-danger:          #e64759
 
 
 //== Scaffolding
@@ -29,16 +35,19 @@ $brand-danger:          #d9534f
 
 //** Background color for `<body>`.
 // $body-bg:               #fff
-$body-bg:               #272b30
+// $body-bg:               #272b30
+$body-bg:               #252830
 
 //** Global text color on `<body>`.
 // $text-color:            $gray-dark
-$text-color:            $gray-light
+// $text-color:            $gray-light
+$text-color:            $gray-lighter //#fff
+
 
 //** Global textual link color.
-// $link-color:            $brand-primary
+$link-color:            lighten($gray-base, 75)//$brand-primary
 //** Link hover color set via `darken()` function.
-// $link-hover-color:      darken($link-color, 15%)
+$link-hover-color:      $brand-primary //darken($link-color, 15%)
 //** Link hover decoration.
 // $link-hover-decoration: underline
 
@@ -47,13 +56,120 @@ $text-color:            $gray-light
 //
 //## Font, line-height, and color for body text, headings, and more.
 
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 200
+  src: local('Source Code Pro ExtraLight'), local('SourceCodePro-ExtraLight'), url(../fonts/SourceCodePro-ExtraLight.ttf) format('ttf')
+
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 300
+  src: local('Source Code Pro Light'), local('SourceCodePro-Light'), url(../fonts/SourceCodePro-ExtraLight.ttf) format('ttf')
+
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 400
+  src: local('Source Code Pro'), local('SourceCodePro-Regular'), url(../fonts/SourceCodePro-Regular.ttf) format('ttf')
+
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 500
+  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'), url(../fonts/SourceCodePro-Medium.ttf) format('ttf')
+
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 600
+  src: local('Source Code Pro Semibold'), local('SourceCodePro-Semibold'), url(../fonts/SourceCodePro-Semibold.ttf) format('ttf')
+
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 700
+  src: local('Source Code Pro Bold'), local('SourceCodePro-Bold'), url(../fonts/SourceCodePro-Bold.ttf) format('ttf')
+
+@font-face
+  font-family: 'Source Code Pro'
+  font-style: normal
+  font-weight: 900
+  src: local('Source Code Pro Black'), local('SourceCodePro-Black'), url(../fonts/SourceCodePro-Black.ttf) format('ttf')
+
+
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 100
+  src: local('Roboto Thin'), local('Roboto-Thin'), url(../fonts/Roboto-Thin.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 300
+  src: local('Roboto Light'), local('Roboto-Light'), url(../fonts/Roboto-Light.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 400
+  src: local('Roboto'), local('Roboto-Regular'), url(../fonts/Roboto-Regular.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 500
+  src: local('Roboto Medium'), local('Roboto-Medium'), url(../fonts/Roboto-Medium.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 700
+  src: local('Roboto Bold'), local('Roboto-Bold'), url(../fonts/Roboto-Bold.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: normal
+  font-weight: 900
+  src: local('Roboto Black'), local('Roboto-Black'), url(../fonts/Roboto-Black.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: italic
+  font-weight: 100
+  src: local('Roboto Thin Italic'), local('Roboto-ThinItalic'), url(../fonts/Roboto-ThinItalic.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: italic
+  font-weight: 300
+  src: local('Roboto Light Italic'), local('Roboto-LightItalic'), url(../fonts/Roboto-LightItalic.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: italic
+  font-weight: 400
+  src: local('Roboto Italic'), local('Roboto-Italic'), url(../fonts/Roboto-Italic.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: italic
+  font-weight: 500
+  src: local('Roboto Medium Italic'), local('Roboto-MediumItalic'), url(../fonts/Roboto-MediumItalic.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: italic
+  font-weight: 700
+  src: local('Roboto Bold Italic'), local('Roboto-BoldItalic'), url(../fonts/Roboto-BoldItalic.ttf) format('ttf')
+@font-face
+  font-family: 'Roboto'
+  font-style: italic
+  font-weight: 900
+  src: local('Roboto Black Italic'), local('Roboto-BlackItalic'), url(../fonts/Roboto-BlackItalic.ttf) format('ttf')
+
 // $font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-family-sans-serif:  Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif
+
 // $font-family-serif:       Georgia, "Times New Roman", Times, serif
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 // $font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace
+$font-family-monospace:   'Source Code Pro', Monaco, Consolas, "Courier New", monospace
 // $font-family-base:        $font-family-sans-serif
 
-// $font-size-base:          18px
+// $font-size-base:          16px
 // $font-size-large:         ceil(($font-size-base * 1.25)) // ~18px
 // $font-size-small:         ceil(($font-size-base * 0.85)) // ~12px
 
@@ -71,8 +187,8 @@ $text-color:            $gray-light
 
 //** By default, this inherits from the `<body>`.
 // $headings-font-family:    inherit
-// $headings-font-weight:    500
-// $headings-line-height:    1.1
+$headings-font-weight:    100
+$headings-line-height:    1.1
 // $headings-color:          inherit
 
 
@@ -117,8 +233,9 @@ $text-color:            $gray-light
 
 //** Global color for active items (e.g., navs or dropdowns).
 // $component-active-color:    #fff
+// $component-active-color:      #1CA8DD
 //** Global background color for active items (e.g., navs or dropdowns).
-$component-active-bg:       $brand-primary
+$component-active-bg:         $brand-primary
 
 //** Width of the `border` for generating carets that indicator dropdowns.
 // $caret-width-base:          4px
@@ -144,8 +261,8 @@ $table-bg-hover:                #f5f5f5
 $table-bg-active:               $table-bg-hover
 
 //** Border color for table and cell borders.
-$table-border-color:            #ddd
-
+// $table-border-color:            #ddd
+$table-border-color:               #434857
 
 //== Buttons
 //
@@ -156,26 +273,33 @@ $table-border-color:            #ddd
 // $btn-default-color:              #333
 // $btn-default-bg:                 #fff
 // $btn-default-border:             #ccc
+$btn-default-color:              #293a46
+$btn-default-bg:                 #fff
+$btn-default-border:             lighten($btn-default-bg, 5%)
 
 // $btn-primary-color:              #fff
 // $btn-primary-bg:                 $brand-primary
 // $btn-primary-border:             darken($btn-primary-bg, 5%)
 
-// $btn-success-color:              #fff
-// $btn-success-bg:                 $brand-success
-// $btn-success-border:             darken($btn-success-bg, 5%)
+$btn-primary-color:              #293a46
+$btn-primary-bg:                 $brand-primary
+$btn-primary-border:             lighten($btn-primary-bg, 5%) //darken($btn-primary-bg, 5%)
 
-// $btn-info-color:                 #fff
-// $btn-info-bg:                    $brand-info
-// $btn-info-border:                darken($btn-info-bg, 5%)
+$btn-success-color:              #293a46
+$btn-success-bg:                 $brand-success
+$btn-success-border:             lighten($btn-success-bg, 5%)
 
-// $btn-warning-color:              #fff
-// $btn-warning-bg:                 $brand-warning
-// $btn-warning-border:             darken($btn-warning-bg, 5%)
+$btn-info-color:                 #293a46
+$btn-info-bg:                    $brand-info
+$btn-info-border:                lighten($btn-info-bg, 5%)
 
-// $btn-danger-color:               #fff
-// $btn-danger-bg:                  $brand-danger
-// $btn-danger-border:              darken($btn-danger-bg, 5%)
+$btn-warning-color:              #293a46
+$btn-warning-bg:                 $brand-warning
+$btn-warning-border:             lighten($btn-warning-bg, 5%)
+
+$btn-danger-color:               #293a46
+$btn-danger-bg:                  $brand-danger
+$btn-danger-border:              lighten($btn-danger-bg, 5%)
 
 // $btn-link-disabled-color:        $gray-light
 
@@ -241,7 +365,7 @@ $table-border-color:            #ddd
 //## Dropdown menu container and contents.
 
 //** Background for the dropdown menu.
-// $dropdown-bg:                    #fff
+$dropdown-bg:                    #1CA8DD
 //** Dropdown menu `border-color`.
 // $dropdown-border:                rgba(0,0,0,.15)
 //** Dropdown menu `border-color` **for IE8**.
@@ -250,7 +374,7 @@ $table-border-color:            #ddd
 // $dropdown-divider-bg:            #e5e5e5
 
 //** Dropdown link text color.
-// $dropdown-link-color:            $gray-dark
+// $dropdown-link-color:            $gray-light
 //** Hover color for dropdown links.
 // $dropdown-link-hover-color:      darken($gray-dark, 5%)
 //** Hover background for dropdown links.
@@ -331,9 +455,9 @@ $table-border-color:            #ddd
 //## Define your custom responsive grid.
 
 //** Number of columns in the grid.
-// $grid-columns:              12
+$grid-columns:              12
 //** Padding between columns. Gets divided in half for the left and right.
-// $grid-gutter-width:         30px
+$grid-gutter-width:         30px
 // Navbar collapse
 //** Point at which the navbar becomes uncollapsed.
 // $grid-float-breakpoint:     $screen-sm-min
@@ -356,9 +480,9 @@ $table-border-color:            #ddd
 // $container-md:                 $container-desktop
 
 // Large screen / wide desktop
-// $container-large-desktop:      (1140px + $grid-gutter-width)
+$container-large-desktop:      (1140px + $grid-gutter-width)
 //** For `$screen-lg-min` and up.
-// $container-lg:                 $container-large-desktop
+$container-lg:                 $container-large-desktop
 
 
 //== Navbar
@@ -430,8 +554,9 @@ $table-border-color:            #ddd
 //=== Shared nav styles
 // $nav-link-padding:                          10px 15px
 // $nav-link-hover-bg:                         $gray-lighter
+$nav-link-hover-bg:                         rgba(51,168,255,0.25)
 
-// $nav-disabled-link-color:                   $gray-light
+$nav-disabled-link-color:                   $gray-light
 // $nav-disabled-link-hover-color:             $gray-light
 
 //== Tabs
@@ -617,6 +742,7 @@ $table-border-color:            #ddd
 // $modal-backdrop-opacity:      .5
 //** Modal header border color
 // $modal-header-border-color:   #e5e5e5
+$modal-header-border-color:   #434857
 //** Modal footer border color
 // $modal-footer-border-color:   $modal-header-border-color
 
@@ -679,8 +805,10 @@ $table-border-color:            #ddd
 
 //** Background color on `.list-group-item`
 // $list-group-bg:                 #fff
+$list-group-bg:                 rgba(255,255,255,0.10)
 //** `.list-group-item` border color
 // $list-group-border:             #ddd
+$list-group-border:             darken($list-group-bg, 7%)
 //** List group border radius
 // $list-group-border-radius:      $border-radius-base
 
@@ -696,15 +824,17 @@ $table-border-color:            #ddd
 // $list-group-active-text-color:  lighten($list-group-active-bg, 40%)
 
 //** Text color of disabled list items
-// $list-group-disabled-color:      $gray-light
+$list-group-disabled-color:      #f90 //$gray-light
 //** Background color of disabled list items
 // $list-group-disabled-bg:         $gray-lighter
 //** Text color for content within disabled list items
 // $list-group-disabled-text-color: $list-group-disabled-color
 
-// $list-group-link-color:         #555
+// $list-group-link-color:          #555
+$list-group-link-color:          $gray-light
 // $list-group-link-hover-color:   $list-group-link-color
 // $list-group-link-heading-color: #333
+$list-group-link-heading-color:   $gray-lighter
 
 
 //== Panels
@@ -770,7 +900,8 @@ $table-border-color:            #ddd
 //##
 
 // $well-bg:                     #f5f5f5
-// $well-border:                 darken($well-bg, 7%)
+$well-bg:                     rgba(255,255,255,0.10)
+$well-border:                 darken($well-bg, 7%)
 
 
 //== Badges
@@ -870,12 +1001,14 @@ $table-border-color:            #ddd
 // $blockquote-border-color:     $gray-lighter
 //** Page header border color
 // $page-header-border-color:    $gray-lighter
+$page-header-border-color:    #434857
+
 //** Width of horizontal description list titles
 // $dl-horizontal-offset:        $component-offset-horizontal
 //** Point at which .dl-horizontal becomes horizontal
 // $dl-horizontal-breakpoint:    $grid-float-breakpoint
 //** Horizontal line color.
-// $hr-border:                   $gray-lighter
+$hr-border:                   #434857
 
 // $font-stack: Helvetica Neue, Helvetica, Arial, sans-serif
 
@@ -917,4 +1050,12 @@ $table-border-color:            #ddd
         background: url(../images/combobox_hover.svg) 100% / 15% no-repeat rgba(128,128,128,0.35)
         color: $gray-lighter
 
+
+h6, h5, h4
+  color: #434857
+  font-weight: 400
+
+h2
+  font-weight: 100
+  color: #fff
 
