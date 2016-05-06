@@ -1,11 +1,11 @@
-MAKEFLAGS += -s
+# MAKEFLAGS += -s
 
 # tools
 MKDIR_P=mkdir -p
 MKTARGETDIR=$(MKDIR_P) $(@D)
 RM = rm -rf
 HAML = haml
-SASS = sass
+SASS = sass -I vendor/bootstrap-3.3.6/stylesheets
 COFFEE = coffee
 
 # source
@@ -22,12 +22,12 @@ FONT_PATH = $(ROOT_PATH)/fonts
 
 # dependencies
 BOOTSTRAP_PATH = vendor/bootstrap-3.3.6
-BOOTSTRAP_SRC = $(BOOTSTRAP_PATH)/stylesheets
+BOOTSTRAP_SASS_PATH = $(BOOTSTRAP_PATH)/stylesheets
 BOOTSTRAP_JS_SRC = $(wildcard $(BOOTSTRAP_PATH)/javascripts/bootstrap/*) $(wildcard $(BOOTSTRAP_PATH)/javascripts/*)
 BOOTSTRAP_FONTS_SRC = $(wildcard $(BOOTSTRAP_PATH)/fonts/bootstrap/*)
+BOOTSTRAP_SRC = $(wildcard $(BOOTSTRAP_SASS_PATH)/*.scss) $(wildcard $(BOOTSTRAP_SASS_PATH)/bootstrap/*.scss) $(wildcard $(BOOTSTRAP_SASS_PATH)/bootstrap/mixins/*.scss)
 
-BOOTSTRAP=$(CSS_PATH)/bootstrap.css
-BOOTSTRAP_THEME=$(CSS_PATH)/bootstrap-theme.css
+BOOTSTRAP=$(patsubst $(BOOTSTRAP_SASS_PATH)/%.scss, $(CSS_PATH)/%.css, $(BOOTSTRAP_SRC))
 BOOTSTRAP_FONTS=$(patsubst $(BOOTSTRAP_PATH)/fonts/bootstrap/%, $(FONT_PATH)/bootstrap/%, $(BOOTSTRAP_FONTS_SRC))
 BOOTSTRAP_JS=$(patsubst $(BOOTSTRAP_PATH)/javascripts/%, $(JS_PATH)/%, $(BOOTSTRAP_JS_SRC))
 
@@ -45,6 +45,7 @@ HTML = $(patsubst $(HAML_PATH)/%.html.haml, $(ROOT_PATH)/%.html, $(HTML_SRC))
 SVG = $(patsubst $(HAML_PATH)/%.svg.haml, $(IMAGE_PATH)/%.svg, $(SVG_SRC))
 CSS = $(patsubst $(SASS_PATH)/%.sass, $(CSS_PATH)/%.css, $(CSS_SRC))
 
+
 # HTML = $(HTML_HAML:.html.haml=.html)
 # CSS = $(SASS:.sass=.css)
 
@@ -56,13 +57,13 @@ all: $(HTML) $(SVG) $(CSS) bootstrap
 watch:
 	fswatch -o $(SOURCE) Makefile | xargs -n1 -I{} make
 
-bootstrap: $(BOOTSTRAP) $(BOOTSTRAP_THEME) $(BOOTSTRAP_FONTS) $(BOOTSTRAP_JS)
+bootstrap: $(BOOTSTRAP_FONTS) $(BOOTSTRAP_JS)
 
-$(BOOTSTRAP): $(BOOTSTRAP_SRC)/_bootstrap.scss
-	$(SASS) $< $@
+# $(BOOTSTRAP): $(BOOTSTRAP_SRC)/_bootstrap.scss
+# 	$(SASS) $< $@
 
-$(BOOTSTRAP_THEME): $(BOOTSTRAP_SRC)/bootstrap/_theme.scss
-	$(SASS) $< $@
+# $(BOOTSTRAP_THEME): $(BOOTSTRAP_SRC)/bootstrap/_theme.scss
+# 	$(SASS) $< $@
 
 define make-html
 $1: $(patsubst $(ROOT_PATH)/%, $(HAML_PATH)/%.haml, $1)
@@ -78,6 +79,12 @@ endef
 
 define make-css
 $1: $(patsubst $(CSS_PATH)/%.css, $(SASS_PATH)/%.sass, $1)
+	$(MKDIR_P) $$(@D)
+	$(SASS) $$< $$@
+endef
+
+define make-bootstrap
+$1: $(patsubst $(CSS_PATH)/%.css, $(BOOTSTRAP_SASS_PATH)/%.scss, $1)
 	$(MKDIR_P) $$(@D)
 	$(SASS) $$< $$@
 endef
@@ -105,6 +112,7 @@ $(foreach svg_file,$(SVG),$(eval $(call make-svg,$(svg_file))))
 $(foreach css_file,$(CSS),$(eval $(call make-css,$(css_file))))
 
 # bootstrap
+$(foreach bootstrap_file,$(BOOTSTRAP),$(eval $(call make-bootstrap,$(bootstrap_file))))
 $(foreach font_file,$(BOOTSTRAP_FONTS),$(eval $(call make-font,$(font_file))))
 $(foreach js_file,$(BOOTSTRAP_JS),$(eval $(call make-js,$(js_file))))
 
