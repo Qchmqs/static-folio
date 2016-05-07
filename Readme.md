@@ -56,5 +56,32 @@ Static uses these tools.
 [7]: https://github.com/mishoo/UglifyJS
 [8]: https://github.com/google/zopfli
 
+## Installation
 
+1. Clone the repo
+
+    git clone https://github.com/JoshuaKolden/Static.git
+
+2. Install [rvm](https://rvm.io), if you don't have it installed already.
+
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+    \curl -sSL https://get.rvm.io | bash -s stable
+
+3. With rvm installed, `cd`-ing into the folder should cause rvm to install the requirements.
+
+    cd Static
+
+4. Install fswatch
+
+    brew install fswatch
+
+5. Install CoffeeScript
+
+    npm install -g coffee-script
+
+
+
+## License 
+
+This library is licensed under the The MIT License. See the LICENSE file for more information.
 

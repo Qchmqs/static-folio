@@ -12,6 +12,7 @@
     %link{ rel:"stylesheet", type:"text/css", href: "css/static.css" }
     %script{ type:"text/javascript", src:"js/jquery-2.2.3.min.js" }
     %script{ type:"text/javascript", src:"js/bootstrap.min.js" }
+    %script{ type:"text/javascript", src:"js/deadline_status.js" }
     %script{ type:"text/javascript", src:"js/static.js" }
   %body{:role => "document"}
     / Fixed navbar
@@ -60,11 +61,23 @@
                   %a{:href => "#"} One more separated link
         / /.nav-collapse
     .container
-      .row
+      .row.first_row
         .col-md-2
           .page-header
-          .page-header
-            %h4 DASHBOARDS
+            %h4 BISHOP
+          %h5
+            USER
+          %ul.nav.nav-pills{:role => "tablist"}
+            %li{role:"presentation"}
+              %a{:href => "#"}
+                Messages
+                %br
+            %li{role:"presentation"}
+              %a{href:"#"}
+                Timecard
+                %br
+          %h5
+            PRODUCTION
           %ul.nav.nav-pills{:role => "tablist"}
             %li{role:"presentation"}
               %a{:href => "#"}
@@ -75,16 +88,8 @@
                 Projects
                 %br
             %li{role:"presentation"}
-              %a{:href => "#"}
-                Messages
-                %br
-            %li{role:"presentation"}
               %a{href:"#"}
                 Hicks
-                %br
-            %li{role:"presentation"}
-              %a{href:"#"}
-                Timecard
                 %br
             %li{role:"presentation"}
               %a{href:"#"}
@@ -98,6 +103,9 @@
               %a{href:"#"}
                 Schedule
                 %br
+          %h5
+            FACILITY
+          %ul.nav.nav-pills{:role => "tablist"}
             %li{role:"presentation"}
               %a{href:"#"}
                 Seating Chart
@@ -105,10 +113,6 @@
             %li{role:"presentation"}
               %a{href:"#"}
                 Timecard Approval
-                %br
-            %li{role:"presentation"}
-              %a{href:"#"}
-                API View
                 %br
             %li{role:"presentation"}
               %a{href:"#"}
@@ -122,6 +126,13 @@
               %a{href:"#"}
                 Timecard Reports
                 %br
+            %li{role:"presentation"}
+              %a{href:"#"}
+                API View
+                %br
+          %h5
+            SYSTEMS
+          %ul.nav.nav-pills{:role => "tablist"}
             %li{role:"presentation"}
               %a{href:"#"}
                 NAS Storage
@@ -184,8 +195,7 @@
                 %br
         .col-md-9
           .page-header
-          .page-header
-            %h6 DASHBOARDS
+            %h6 DASHBOARD
             %h2 Overview
           / %img.img-thumbnail{:alt => "200x200", "data-holder-rendered" => "true", "data-src" => "holder.js/200x200", :src => "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTQ3M2VhYzYwZCB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NDczZWFjNjBkIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjczLjcxODc1IiB5PSIxMDQuNTMyODEyNSI+MjAweDIwMDwvdGV4dD48L2c+PC9nPjwvc3ZnPg==", :style => "width: 200px; height: 200px;"}
           %img.img-thumbnail{:alt => "200x200", "data-holder-rendered" => "true", "data-src" => "holder.js/200x200", :src => "images/grid.svg", :style => "width: 200px; height: 200px;"}

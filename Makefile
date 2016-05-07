@@ -41,7 +41,7 @@ SVG_SRC = $(wildcard $(HAML_PATH)/*.svg.haml)
 FONT_SRC = $(wildcard $(TTF_PATH)/*.ttf)
 CSS_SRC = $(wildcard $(SASS_PATH)/*.sass)
 
-SOURCE = $(HTML_SRC) $(SVG_SRC) $(CSS_SRC) $(JS_SRC) $(FONT_SRC)
+SOURCE = $(HTML_SRC) $(SVG_SRC) $(CSS_SRC) $(JS_SRC) $(FONT_SRC) $(LITCOFFEE) $(CS)
 
 HTML = $(patsubst $(HAML_PATH)/%.html.haml, $(ROOT_PATH)/%.html, $(HTML_SRC))
 SVG = $(patsubst $(HAML_PATH)/%.svg.haml, $(IMAGE_PATH)/%.svg, $(SVG_SRC))
