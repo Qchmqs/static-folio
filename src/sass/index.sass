@@ -1,0 +1,193 @@
+$design-bgcolor:         #FFFFFF 
+$design-color:           #6D0A21 
+
+$code-bgcolor:           #ADBBBB
+$code-color:             #333333
+$front-color:            #CCC
+
+$bg-color:               #FFFFFF
+$text-color:             #222222
+$nav-text-color:         #EEEEEE
+$section-bgcolor:        #FFFFFF
+$section-color:          #222222
+
+$gray-base:              #000
+$gray-darker:            lighten($gray-base, 13.5%) // #222
+$gray-dark:              lighten($gray-base, 20%)   // #333
+$gray:                   lighten($gray-base, 33.5%) // #555
+$gray-light:             lighten($gray-base, 46.7%) // #777
+$gray-lighter:           lighten($gray-base, 93.5%) // #eee
+
+a, a:hover, a:focus, a:active, a:visited
+    text-decoration: none
+    color: $text-color
+*
+    box-sizing: border-box
+    transition: all 0.2s
+    transition-delay: 0
+
+section
+    height: 100vh
+    display: flex
+
+.container
+    display: flex
+
+    .design
+        align-items: flex-end
+        margin: 0.5em
+        background-color: $bg-color
+        flex-grow: 1
+        text-align: end
+        color: $front-color
+        font-size: 5em
+
+        &:hover
+            background-color: $design-color
+            flex-grow: 2
+            color: $nav-text-color
+    .code
+        align-items: flex-end
+        margin: 0.5em
+        background-color: $bg-color
+        flex-grow: 1
+        color: $front-color
+        font-size: 5em
+
+        &:hover
+            background-color: $code-color
+            flex-grow: 2
+            color: $nav-text-color
+
+.design-container
+    margin: 1em
+    display: flex
+    align-content: stretch
+    justify-content: stretch
+    width: 100%
+
+    .content
+        background-color: $bg-color
+        flex-grow: 6
+        color: $text-color
+        overflow: hidden
+        display: flex
+        flex-direction: column
+
+        & > h1
+            text-align: left
+            padding: 0.5em
+            border-bottom: solid $design-color
+            color: $design-color
+
+        .section
+            margin: 1em
+            padding-left: 2rem
+            background-color: $section-bgcolor
+            color: $design-color
+            min-height: 90vh
+            .box
+                display: flex
+                flex-direction: column
+                width: 30%
+                .header
+                    background-color: $design-color
+                    color: $design-bgcolor
+                .body
+                    border-bottom: solid $design-color
+
+    .navigation
+        margin: 1em
+        background-color: $design-bgcolor
+        ul
+            list-style-type: none
+            line-height: 2em
+            display: flex
+            flex-direction: column
+            height: 100%
+            li
+                display: flex
+                font-size: 3rem
+                padding: 1em 0em
+                border-bottom: 2px solid $design-bgcolor
+
+                a
+                    color: $design-color
+
+                a:hover
+                    padding-left: 0.2em
+                    text-decoration: none
+
+            li.back
+                margin-top: auto
+
+            li:hover, li:focus
+                border-bottom: 2px solid $design-color
+                color: $design-color
+    .contact
+        display: flex
+        flex-direction: column
+        justify-content: space-around
+        justify-self: center
+        color: $design-color
+        width: 80%
+        input
+            border-color: $design-color
+            color: $design-color
+
+.code-container
+    margin: 1em
+    display: flex
+    align-content: stretch
+    justify-content: stretch
+    width: 100%
+
+    .content
+        background-color: $bg-color
+        flex-grow: 6
+        color: $text-color
+        overflow: hidden
+        display: flex
+        flex-direction: column
+
+        & > h1
+            text-align: right
+        .section
+            margin: 1em
+            padding-left: 2rem
+            background-color: $bg-color
+            min-height: 90vh
+
+    .navigation
+        margin: 1em
+        background-color: $bg-color
+        ul
+            list-style-type: none
+            line-height: 2em
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            height: 100%
+            li
+                display: flex
+                font-size: 3rem
+                padding: 1em 0em
+                border-bottom: 2px solid $bg-color
+
+                a
+                    color: $code-color
+
+                a:hover
+                    text-decoration: none
+                    color: $nav-text-color
+
+            li.back
+                margin-top: auto
+
+            li:hover, li:focus
+                padding-left: 1.5rem
+                background-color: $code-color
+                border-bottom: 2px solid $code-bgcolor
+                color: $design-color
+                & > a
+                    color: $nav-text-color

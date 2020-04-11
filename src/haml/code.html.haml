@@ -1,0 +1,68 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    %title Web Design & more
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "", :name => "author"}
+    -# %link{:href => "../../favicon.ico", :rel => "icon"}
+    %link{ rel:"stylesheet", type:"text/css", href: "css/static.css" }
+    %script{ type:"text/javascript", src:"js/jquery-2.2.3.min.js" }
+    %script{ type:"text/javascript", src:"js/bootstrap.min.js" }
+    %script{ type:"text/javascript", src:"js/deadline_status.js" }
+    %script{ type:"text/javascript", src:"js/static.js" }
+  %body{:role => "document"}
+    %section
+      .code-container
+        .navigation
+          %ul 
+            %li 
+              %a{ :href => "#welcome" } 
+                Home
+            %li
+              %a{ :href => "#about" } 
+                About
+            %li
+              %a{ :href => "#works" } 
+                Works
+            %li
+              %a{ :href => "#templates" } 
+                Templates
+            %li
+              %a{ :href => "#contact" } 
+                Contact
+            %li.back
+              %a{ :href => "index.html" } 
+                Back
+        .content
+          %h1#welcome Welcome
+          .section
+            Content
+          %h1#about About Us
+          .section
+            Content
+          %h1#works Our Works 
+          .section
+            Content
+          %h1#templates Templates
+          .section
+            Content
+          %h1#contact Contact US
+          .section
+            %form.contact
+              %label Email
+              %input
+              %label Name
+              %input
+              %label Company
+              %input
+              %label Subject
+              %input
+              %label Message
+              %textarea
+              %submit
+
+        

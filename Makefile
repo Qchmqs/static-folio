@@ -55,6 +55,12 @@ all: $(HTML) $(SVG) $(CSS) $(FONTS) $(JS) $(JQUERY_PATH) bootstrap
 	echo `date`
 	echo Build done.
 
+haml: $(HTML)
+
+sass: $(CSS)
+
+coffee: $(JS)
+
 watch:
 	fswatch -o $(SOURCE) Makefile | xargs -n1 -I{} make
 
